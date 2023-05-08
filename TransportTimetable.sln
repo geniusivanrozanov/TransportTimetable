@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportTimetable", "Trans
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportTimetable.BLL", "TransportTimetable.BLL\TransportTimetable.BLL.csproj", "{3A95D5C7-840A-460C-BE47-62A75AF606AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportTimetable.DAL", "TransportTimetable.DAL\TransportTimetable.DAL.csproj", "{71D13463-9E3F-45C9-A7C8-629C651AAD34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{3A95D5C7-840A-460C-BE47-62A75AF606AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A95D5C7-840A-460C-BE47-62A75AF606AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A95D5C7-840A-460C-BE47-62A75AF606AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71D13463-9E3F-45C9-A7C8-629C651AAD34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71D13463-9E3F-45C9-A7C8-629C651AAD34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71D13463-9E3F-45C9-A7C8-629C651AAD34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71D13463-9E3F-45C9-A7C8-629C651AAD34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
