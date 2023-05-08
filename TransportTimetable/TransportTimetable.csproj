@@ -16,4 +16,8 @@
       <Folder Include="Controllers" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\TransportTimetable.BLL\TransportTimetable.BLL.csproj" />
+    </ItemGroup>
+
 </Project>

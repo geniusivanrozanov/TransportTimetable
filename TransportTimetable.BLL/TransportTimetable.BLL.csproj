@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\TransportTimetable.DAL\TransportTimetable.DAL.csproj" />
+    </ItemGroup>
+
 </Project>
