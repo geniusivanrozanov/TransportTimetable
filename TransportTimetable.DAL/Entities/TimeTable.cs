@@ -4,7 +4,7 @@ public class TimeTable
 {
     public Guid Id { get; set; }
     
-    public TimeOnly Time { get; set; }
+    public TimeSpan Time { get; set; }
     
     public DayOfWeek DayOfWeek { get; set; }
     
