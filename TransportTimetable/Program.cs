@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.HttpOverrides;
+using TransportTimetable.DAL.Extensions;
 using TransportTimetable.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.ConfigureCors();
+builder.Services.ConfigureDbContext(builder.Configuration);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
