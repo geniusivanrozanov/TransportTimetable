@@ -28,6 +28,7 @@ else
     app.UseHsts();
 }
 
+app.ConfigureExceptionHandler();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
