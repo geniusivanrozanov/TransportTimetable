@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.HttpOverrides;
+using TransportTimetable.BLL.Extensions;
 using TransportTimetable.DAL.Extensions;
 using TransportTimetable.Extensions;
 
@@ -8,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigureCors();
 builder.Services.ConfigureDbContext(builder.Configuration);
+builder.Services.ConfigureAutoMapper();
 
+builder.Services.AddBllServices();
 builder.Services.AddRepositoryManager();
 
 builder.Services.AddControllers();
