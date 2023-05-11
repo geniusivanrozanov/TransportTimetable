@@ -9,5 +9,7 @@ public class DtoViewModelProfile : Profile
     public DtoViewModelProfile()
     {
         CreateMap<TransportTypeDto, TransportTypeViewModel>().ReverseMap();
+        CreateMap<TransportTypeForCreationViewModel, TransportTypeDto>().ReverseMap();
+        CreateMap<TransportTypeForUpdateViewModel, TransportTypeDto>().ReverseMap();
     }
 }
