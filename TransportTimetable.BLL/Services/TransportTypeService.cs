@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using TransportTimetable.BLL.DataTransferObjects;
 using TransportTimetable.BLL.Interfaces;
@@ -15,26 +16,24 @@ public class TransportTypeService : ServiceBase<TransportTypeDto>, ITransportTyp
 
     public override async Task<IEnumerable<TransportTypeDto>> GetAll()
     {
-        var entities = await Repository
+        var transportTypes = await Repository
             .TransportType
             .Get()
             .AsNoTracking()
+            .ProjectTo<TransportTypeDto>(Mapper.ConfigurationProvider)
             .ToArrayAsync();
-
-        var transportTypes = Mapper.Map<IEnumerable<TransportTypeDto>>(entities);
 
         return transportTypes;
     }
 
     public override async Task<TransportTypeDto?> GetById(Guid id)
     {
-        var entity = await Repository
+        var transportType = await Repository
             .TransportType
             .Get(tt => tt.Id.Equals(id))
             .AsNoTracking()
+            .ProjectTo<TransportTypeDto>(Mapper.ConfigurationProvider)
             .FirstOrDefaultAsync();
-
-        var transportType = Mapper.Map<TransportTypeDto?>(entity);
 
         return transportType;
     }
