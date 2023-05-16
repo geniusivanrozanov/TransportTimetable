@@ -1,6 +1,8 @@
-﻿namespace TransportTimetable.DAL.Interfaces;
+﻿using TransportTimetable.DAL.Entities;
 
-public interface IRouteRepository
+namespace TransportTimetable.DAL.Interfaces;
+
+public interface IRouteRepository : IRepositoryBase<Route>
 {
     
 }
