@@ -9,6 +9,7 @@ namespace TransportTimetable.BLL.Services;
 
 public abstract class ServiceBase<TDto, TEntity> : IServiceBase<TDto>
     where TEntity : GuidEntity
+    where TDto : IDto<Guid>
 {
     private readonly IRepositoryBase<TEntity> _repository;
     
@@ -57,6 +58,8 @@ public abstract class ServiceBase<TDto, TEntity> : IServiceBase<TDto>
 
     public virtual async Task Update(Guid id, TDto dto)
     {
+        dto.Id = id;
+        
         var entity = await _repository
             .Get(e => e.Id.Equals(id))
             .FirstOrDefaultAsync();

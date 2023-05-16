@@ -1,6 +1,8 @@
-﻿namespace TransportTimetable.BLL.DataTransferObjects;
+﻿using TransportTimetable.BLL.Interfaces;
 
-public class TransportTypeDto
+namespace TransportTimetable.BLL.DataTransferObjects;
+
+public class TransportTypeDto : IDto<Guid>
 {
     public Guid Id { get; set; }
 

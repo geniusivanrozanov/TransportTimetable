@@ -1,6 +1,6 @@
 ﻿namespace TransportTimetable.BLL.Interfaces;
 
-public interface IServiceBase<TDto>
+public interface IServiceBase<TDto> where TDto : IDto<Guid>
 {
     Task<IEnumerable<TDto>> GetAll();
     Task<TDto?> GetById(Guid id);
