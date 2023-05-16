@@ -8,6 +8,7 @@ public interface IRepositoryManager
     IStopRepository Stop { get; }
     ITransportTypeRepository TransportType { get; }
     ITimeTableRepository TimeTable { get; }
+    IRouteStopRepository RouteStop { get; }
 
     void Save();
     Task SaveAsync();

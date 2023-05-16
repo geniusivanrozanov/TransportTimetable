@@ -11,6 +11,7 @@ public class RepositoryManager : IRepositoryManager
     private IStopRepository? _stopRepository;
     private ITransportTypeRepository? _transportTypeRepository;
     private ITimeTableRepository? _timeTableRepository;
+    private IRouteStopRepository? _routeStopRepository;
 
     public RepositoryManager(RepositoryContext context)
     {
@@ -21,6 +22,8 @@ public class RepositoryManager : IRepositoryManager
     public IStopRepository Stop => _stopRepository ??= new StopRepository(_context);
     public ITransportTypeRepository TransportType => _transportTypeRepository ??= new TransportTypeRepository(_context);
     public ITimeTableRepository TimeTable => _timeTableRepository ??= new TimeTableRepository(_context);
+    public IRouteStopRepository RouteStop => _routeStopRepository ??= new RouteStopRepository(_context);
+
 
     public void Save() => _context.SaveChanges();
     public Task SaveAsync() => _context.SaveChangesAsync();
@@ -36,6 +39,8 @@ public class RepositoryManager : IRepositoryManager
             return TransportType as IRepositoryBase<TEntity> ?? throw new InvalidOperationException();
         if (entityType == typeof(TimeTable))
             return TimeTable as IRepositoryBase<TEntity> ?? throw new InvalidOperationException();
+        if (entityType == typeof(RouteStop))
+            return RouteStop as IRepositoryBase<TEntity> ?? throw new InvalidOperationException();
         
         throw new ArgumentException();
     }

@@ -50,7 +50,7 @@ public static class ServiceExtensions
         }
         catch (Exception ex)
         {
-            var logger = scope.ServiceProvider.GetRequiredService<ILogger>();
+            var logger = scope.ServiceProvider.GetRequiredService<ILogger<RepositoryContext>>();
             logger.LogError(ex, "An error occurred while migrating the database");
         }
 

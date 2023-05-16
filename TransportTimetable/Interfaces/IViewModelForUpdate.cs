@@ -2,5 +2,5 @@
 
 public interface IViewModelForUpdate
 {
-    
+    Guid Id { get; set; }
 }
