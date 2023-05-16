@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NetTopologySuite.Triangulate.Tri;
+using TransportTimetable.DAL.Entities;
 using TransportTimetable.DAL.Interfaces;
 using TransportTimetable.DAL.Repositories;
 
@@ -25,10 +26,13 @@ public static class ServiceExtensions
         return services;
     }
 
-    public static IServiceCollection AddRepositoryManager(this IServiceCollection services)
+    public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
-        services.AddScoped<IRepositoryManager, RepositoryManager>();
-        
-        return services;
+        return services
+            .AddScoped<IRepositoryManager, RepositoryManager>()
+            .AddScoped<IRouteRepository, RouteRepository>()
+            .AddScoped<IStopRepository, StopRepository>()
+            .AddScoped<ITimeTableRepository, TimeTableRepository>()
+            .AddScoped<ITransportTypeRepository, TransportTypeRepository>();
     }
 }

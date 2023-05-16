@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigureCors();
 builder.Services.ConfigureDbContext(builder.Configuration);
 
-builder.Services.AddRepositoryManager();
+builder.Services.AddRepositories();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
