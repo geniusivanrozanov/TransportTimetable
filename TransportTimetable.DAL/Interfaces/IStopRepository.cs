@@ -1,6 +1,8 @@
-﻿namespace TransportTimetable.DAL.Interfaces;
+﻿using TransportTimetable.DAL.Entities;
 
-public interface IStopRepository
+namespace TransportTimetable.DAL.Interfaces;
+
+public interface IStopRepository : IRepositoryBase<Stop>
 {
     
 }

@@ -1,4 +1,6 @@
-﻿namespace TransportTimetable.DAL.Interfaces;
+﻿using TransportTimetable.DAL.Entities;
+
+namespace TransportTimetable.DAL.Interfaces;
 
 public interface IRepositoryManager
 {
@@ -9,4 +11,6 @@ public interface IRepositoryManager
 
     void Save();
     Task SaveAsync();
+
+    IRepositoryBase<TEntity> RepositoryFor<TEntity>() where TEntity : GuidEntity;
 }

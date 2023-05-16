@@ -12,7 +12,7 @@ builder.Services.ConfigureDbContext(builder.Configuration);
 builder.Services.ConfigureAutoMapper();
 
 builder.Services.AddBllServices();
-builder.Services.AddRepositoryManager();
+builder.Services.AddRepositories();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

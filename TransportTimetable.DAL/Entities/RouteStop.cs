@@ -1,9 +1,7 @@
 ﻿namespace TransportTimetable.DAL.Entities;
 
-public class RouteStop
+public class RouteStop : GuidEntity
 {
-    public Guid Id { get; set; }
-    
     public int Order { get; set; }
     
     public Guid RouteId { get; set; }
