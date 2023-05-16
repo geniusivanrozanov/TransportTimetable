@@ -1,6 +1,8 @@
-﻿namespace TransportTimetable.ViewModels.TransportType;
+﻿using TransportTimetable.Interfaces;
 
-public class TransportTypeViewModel
+namespace TransportTimetable.ViewModels.TransportType;
+
+public class TransportTypeViewModel : IViewModel
 {
     public Guid Id { get; set; }
 

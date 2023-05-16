@@ -2,7 +2,7 @@
 
 namespace TransportTimetable.ViewModels.TransportType;
 
-public class TransportTypeForManipulationViewModel
+public class TransportTypeViewModelForManipulation
 {
     [Required]
     public string Name { get; set; } = null!;
