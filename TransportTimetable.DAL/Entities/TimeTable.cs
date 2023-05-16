@@ -1,9 +1,7 @@
 ﻿namespace TransportTimetable.DAL.Entities;
 
-public class TimeTable
+public class TimeTable : GuidEntity
 {
-    public Guid Id { get; set; }
-    
     public TimeSpan Time { get; set; }
     
     public DayOfWeek DayOfWeek { get; set; }

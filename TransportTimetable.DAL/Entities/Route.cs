@@ -1,12 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿namespace TransportTimetable.DAL.Entities;
 
-namespace TransportTimetable.DAL.Entities;
-
-public class Route
+public class Route : GuidEntity
 {
-    public Guid Id { get; set; }
-    
     public string Number { get; set; } = null!;
     
     public string? Name { get; set; }
