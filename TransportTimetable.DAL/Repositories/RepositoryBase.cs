@@ -1,9 +1,10 @@
 ﻿using System.Linq.Expressions;
+using TransportTimetable.DAL.Entities;
 using TransportTimetable.DAL.Interfaces;
 
 namespace TransportTimetable.DAL.Repositories;
 
-public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
+public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : GuidEntity
 {
     private readonly RepositoryContext _context;
 

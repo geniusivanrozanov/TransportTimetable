@@ -1,4 +1,5 @@
-﻿using TransportTimetable.DAL.Interfaces;
+﻿using TransportTimetable.DAL.Entities;
+using TransportTimetable.DAL.Interfaces;
 
 namespace TransportTimetable.DAL.Repositories;
 
@@ -23,4 +24,19 @@ public class RepositoryManager : IRepositoryManager
 
     public void Save() => _context.SaveChanges();
     public Task SaveAsync() => _context.SaveChangesAsync();
+    public IRepositoryBase<TEntity> RepositoryFor<TEntity>() where TEntity : GuidEntity
+    {
+        var entityType = typeof(TEntity);
+
+        if (entityType == typeof(Route))
+            return Route as IRepositoryBase<TEntity> ?? throw new InvalidOperationException();
+        if (entityType == typeof(Stop))
+            return Stop as IRepositoryBase<TEntity> ?? throw new InvalidOperationException();
+        if (entityType == typeof(TransportType))
+            return TransportType as IRepositoryBase<TEntity> ?? throw new InvalidOperationException();
+        if (entityType == typeof(TimeTable))
+            return TimeTable as IRepositoryBase<TEntity> ?? throw new InvalidOperationException();
+        
+        throw new ArgumentException();
+    }
 }
