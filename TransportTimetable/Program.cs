@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.ConfigureCors();
 builder.Services.ConfigureDbContext(builder.Configuration);
 builder.Services.ConfigureAutoMapper();
 
@@ -17,6 +16,7 @@ builder.Services.AddRepositories();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.ConfigureCors();
 
 var app = builder.Build();
 
@@ -32,12 +32,12 @@ else
 {
     app.UseHsts();
 }
+app.UseCors("CorsPolicy");
 
 app.ConfigureExceptionHandler();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseCors("CorsPolicy");
 
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {

@@ -18,5 +18,14 @@ namespace TransportTimetable.Controllers
         public TimeTablesController(ITimeTableService service, IMapper mapper) : base(service, mapper)
         {
         }
+
+        [HttpGet("byRoteAndStop")]
+        public async Task<IActionResult> GetByRouteAndStop(Guid routeId, Guid stopId)
+        {
+            var dto = await Service.GetByRoteAndStop(routeId, stopId);
+            var vm = Mapper.Map<IEnumerable<TimeTableViewModel>>(dto);
+
+            return Ok(vm);
+        }
     }
 }

@@ -16,12 +16,14 @@ public class DtoViewModelProfile : Profile
         CreateMap<TransportTypeViewModelForUpdate, TransportTypeDto>().ReverseMap();
 
         CreateMap<RouteDto, RouteViewModel>().ReverseMap();
+        CreateMap<RouteDto, RouteWithStopsViewModel>().ReverseMap();
         CreateMap<RouteDto, RouteViewModelForCreation>().ReverseMap();
         CreateMap<RouteDto, RouteViewModelForUpdate>().ReverseMap();
         
         CreateMap<StopDto, StopViewModel>().ReverseMap();
         CreateMap<StopDto, StopViewModelForCreation>().ReverseMap();
         CreateMap<StopDto, StopViewModelForUpdate>().ReverseMap();
+        CreateMap<StopDto, StopWithRoutesViewModel>().ReverseMap();
         
         CreateMap<TimeTableDto, TimeTableViewModel>().ReverseMap();
         CreateMap<TimeTableDto, TimeTableViewModelForCreation>().ReverseMap();

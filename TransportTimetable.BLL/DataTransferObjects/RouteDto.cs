@@ -12,4 +12,6 @@ public class RouteDto : IDto<Guid>
     
     public Guid TransportTypeId { get; set; }
     public string? TransportType { get; set; }
+    
+    public ICollection<StopDto>? Stops { get; set; }
 }

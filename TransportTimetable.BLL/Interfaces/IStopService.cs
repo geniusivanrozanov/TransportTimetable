@@ -4,5 +4,4 @@ namespace TransportTimetable.BLL.Interfaces;
 
 public interface IStopService : IServiceBase<StopDto>
 {
-    
 }

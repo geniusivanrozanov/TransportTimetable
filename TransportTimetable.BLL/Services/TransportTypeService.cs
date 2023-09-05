@@ -13,4 +13,16 @@ public class TransportTypeService : ServiceBase<TransportTypeDto, TransportType>
     public TransportTypeService(IRepositoryManager repository, IMapper mapper) : base(mapper, repository)
     {
     }
+    
+    public override async Task<IEnumerable<TransportTypeDto>> GetAll()
+    {
+        var dto = await RepositoryManager.TransportType
+            .Get()
+            .AsNoTracking()
+            .OrderBy(tt => tt.Name)
+            .ProjectTo<TransportTypeDto>(Mapper.ConfigurationProvider)
+            .ToArrayAsync();
+        
+        return dto;
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using TransportTimetable.BLL.DataTransferObjects;
 using TransportTimetable.BLL.Interfaces;
@@ -33,5 +34,19 @@ public class TimeTableService : ServiceBase<TimeTableDto, TimeTable>, ITimeTable
         await RepositoryManager.SaveAsync();
 
         Mapper.Map(entity, dto);
+    }
+
+    public async Task<IEnumerable<TimeTableDto>> GetByRoteAndStop(Guid routeId, Guid stopId)
+    {
+        var rs = await RepositoryManager.RouteStop
+            .Get(rs => rs.RouteId.Equals(routeId) && rs.StopId.Equals(stopId))
+            .SingleOrDefaultAsync();
+
+        var tt = await RepositoryManager.TimeTable
+            .Get(tt => tt.RouteStopId.Equals(rs.Id))
+            .ProjectTo<TimeTableDto>(Mapper.ConfigurationProvider)
+            .ToListAsync();
+
+        return tt;
     }
 }

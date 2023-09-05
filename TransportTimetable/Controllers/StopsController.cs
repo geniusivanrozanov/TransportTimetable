@@ -18,5 +18,18 @@ namespace TransportTimetable.Controllers
         public StopsController(IStopService service, IMapper mapper) : base(service, mapper)
         {
         }
+
+        public override async Task<IActionResult> GetById(Guid id)
+        {
+            var dto = await Service.GetById(id);
+            if (dto == null)
+            {
+                return NotFound();
+            }
+
+            var vm = Mapper.Map<StopWithRoutesViewModel>(dto);
+
+            return Ok(vm);
+        }
     }
 }

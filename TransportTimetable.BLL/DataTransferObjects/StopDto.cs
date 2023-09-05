@@ -11,4 +11,6 @@ public class StopDto : IDto<Guid>
     public double X { get; set; }
     
     public double Y { get; set; }
+    
+    public ICollection<RouteDto>? Routes { get; set; }
 }

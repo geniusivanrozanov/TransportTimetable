@@ -12,6 +12,11 @@ public class EntityDtoProfile : Profile
         CreateMap<TransportType, TransportTypeDto>().ReverseMap();
 
         CreateMap<Route, RouteDto>()
+            .ForMember(r => r.Stops, opt =>
+            {
+                opt.AllowNull();
+                opt.MapFrom(x => x.RouteStops.OrderBy(rs => rs.Order).Select(rs => rs.Stop));
+            })
             .ForMember(r => r.TransportType, opt =>
             {
                 opt.MapFrom(x => x.TransportType.Name);
@@ -30,6 +35,10 @@ public class EntityDtoProfile : Profile
             .ForMember(s => s.Y, opt =>
             {
                 opt.MapFrom(x => x.Location.Y);
+            })
+            .ForMember(s => s.Routes, opt =>
+            {
+                opt.MapFrom(x => x.RouteStops.Select(rs => rs.Route));
             })
             .ReverseMap()
             .ForMember(s => s.Location, opt =>

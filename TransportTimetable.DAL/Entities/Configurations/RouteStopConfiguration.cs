@@ -13,5 +13,12 @@ public class RouteStopConfiguration : IEntityTypeConfiguration<RouteStop>
                 rs.Order
             })
             .IsUnique();
+        
+        builder.HasIndex(rs => new
+            {
+                rs.RouteId,
+                rs.StopId
+            })
+            .IsUnique();
     }
 }
